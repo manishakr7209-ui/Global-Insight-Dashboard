@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Country Details</title>
+    <link rel="stylesheet" href="population.css">
+</head>
+<body>
+
+<div class="container" id="details"></div>
+
+<script src="countries.js"></script>
+<script>
+const params = new URLSearchParams(window.location.search);
+const country = params.get("country").toLowerCase();
+
+const data = countryData[country];
+
+if (data) {
+    document.getElementById("details").innerHTML = `
+        <h1>${country.toUpperCase()}</h1>
+        <p>${data.description}</p>
+        <p>👥 Population: ${data.population}</p>
+        <p>👶 Birth Rate: ${data.birthRate}</p>
+        <p>⚰️ Death Rate: ${data.deathRate}</p>
+        <p>❤️ Life Expectancy: ${data.lifeSpan}</p>
+    `;
+} else {
+    document.getElementById("details").innerHTML = "<h2>Country data not found</h2>";
+}
+</script>
+
+</body>
+</html>
