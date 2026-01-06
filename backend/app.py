@@ -1,6 +1,6 @@
-from flask import flask, jsonify
+from flask import Flask, jsonify
 from data import country_data
-app = flask(__name__)
+app = Flask(__name__)
 @app.route("/")
 def home():
     return "World Dashboard Backend Running"
