@@ -1,10 +1,17 @@
 from flask import Flask, jsonify
 from data import country_data
 app = Flask(__name__)
-@app.route("/")
+@app.route("/api/world")
+def world_data():
+    data={
+        "population":"8.1 Billion",
+        "water_level":"71% Earth covered by water",
+        "green_land":"29% Land area",
+        "year":2026
+    }
+    return jsonify(data)
 def home():
     return "World Dashboard Backend Running"
-
 @app.route("/country/<name>")
 def get_country(name):
     name = name.lower()
